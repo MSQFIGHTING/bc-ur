@@ -25,6 +25,7 @@ public:
     class InvalidPart: public std::exception { };
     class InvalidChecksum: public std::exception { };
 
+    //空构造函数
     FountainDecoder();
 
     size_t expected_part_count() const { return _expected_part_indexes.value().size(); }
@@ -34,6 +35,7 @@ public:
     const Result& result() const { return result_; }
     bool is_success() const { return result() && std::holds_alternative<ByteVector>(result().value()); }
     bool is_failure() const { return result() && std::holds_alternative<std::exception>(result().value()); }
+    //is_complete只要是result有值即可，并不指定这一步操作是成功还是失败
     bool is_complete() const { return result().has_value(); }
     const ByteVector& result_message() const { return std::get<ByteVector>(result().value()); }
     const std::exception& result_error() const { return std::get<std::exception>(result().value()); }

@@ -29,6 +29,7 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 
 namespace ur {
 
+//向左移动k位并且低位的数据使用高位移动的数据进行填充
 static inline uint64_t rotl(const uint64_t x, int k) {
 	return (x << k) | (x >> (64 - k));
 }

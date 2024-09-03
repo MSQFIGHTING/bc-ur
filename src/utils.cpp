@@ -154,6 +154,7 @@ bool is_ur_type(char c) {
     return false;
 }
 
+//循环判断string中的每个字符是否符合ur_type的命名规则
 bool is_ur_type(const string& s) {
     return none_of(s.begin(), s.end(), [](auto c) { return !is_ur_type(c); });
 }

@@ -27,9 +27,9 @@ RandomSampler::RandomSampler(std::vector<double> probs) {
     P.reserve(n);
     transform(probs.begin(), probs.end(), back_inserter(P), [&](double d) { return d * double(n) / sum; });
 
-    vector<int> S;
+    vector<int> S;  //small probilities
     S.reserve(n);
-    vector<int> L;
+    vector<int> L;  //large probilities
     L.reserve(n);
 
     // Set separate index lists for small and large probabilities:

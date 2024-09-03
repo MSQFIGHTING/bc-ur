@@ -22,9 +22,9 @@ size_t FountainEncoder::find_nominal_fragment_length(size_t message_len, size_t 
     assert(min_fragment_len > 0);
     assert(max_fragment_len >= min_fragment_len);
     auto max_fragment_count = message_len / min_fragment_len;
-    optional<size_t> fragment_len;
+    optional<size_t> fragment_len;  //这个参数可以有值也可以没有值
     for(size_t fragment_count = 1; fragment_count <= max_fragment_count; fragment_count++) {
-        fragment_len = size_t(ceil(double(message_len) / fragment_count));
+        fragment_len = size_t(ceil(double(message_len) / fragment_count));  //ceil函数是向上取整函数
         if(fragment_len <= max_fragment_len) {
             break;
         }
